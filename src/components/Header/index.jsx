@@ -5,23 +5,21 @@ import './styles.css'
 export const Header = () => {
   return (
     <nav 
-      class="relative flex flex-col w-full items-center justify-between bg-gray-800 py-2 
-      text-white shadow-lg
-      md:flex-row md:flex-wrap md:content-between md:px-5"
+      className="relative flex flex-col items-center justify-between w-full py-2 text-white bg-gray-800 shadow-lg md:flex-row md:flex-wrap md:content-between md:px-5"
     >
-      <Link class="" to="/">
+      <Link className="" to="/">
         <img src='/images/logo.svg' alt="Logo Star Wars" />
       </Link>
 
-      <div class="menu-container">
-        <Link to="/">
+      <div className="menu-container">
+        <Link className='text-xl text-bold' to="/">
           Characters
         </Link>
 
-        <Link to="/films">
+        <Link className='text-xl text-bold' to="/movies">
           Movies
         </Link>
-        <Link to="/starships">
+        <Link className='text-xl text-bold' to="/">
           Login
         </Link>
       </div>
