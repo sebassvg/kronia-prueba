@@ -47,7 +47,7 @@ export const Home = () => {
           ))}
         </div>)}
 
-     <div className="flex flex-col items-center justify-between mt-4 md:flex-row">
+     <div className="flex items-center justify-between mt-4 md:flex-row">
             <button
               className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 md:mb-0 md:mr-2"
               onClick={() => handlePageChange(currentPage - 1)}
