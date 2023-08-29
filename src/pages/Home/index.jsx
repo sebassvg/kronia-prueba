@@ -12,10 +12,12 @@ export const Home = () => {
 
   if (isLoading) {
     return (
-      <div className="mt-4 text-center">
-        <p>Loading...</p>
-        <div className="w-8 h-8 mx-auto mt-4 border-t-2 border-b-2 border-blue-500 rounded-full animate-spin"></div>
-      </div>
+        <div class="flex items-center justify-center w-full min-h-screen">
+          <div class="flex flex-col justify-center items-center space-x-1 text-sm text-gray-700">
+            <img class="w-40 h-32" src={"/images/deathstar.gif"} alt="Loading gif" />
+            <p>Loading...</p>
+          </div>
+        </div>
     );
   }
 
@@ -31,24 +33,23 @@ export const Home = () => {
       <h1 className='mb-10 text-2xl font-bold text-center'>Star Wars Characters</h1>
       {data && (
         <div className="flex flex-wrap justify-center gap-10 align-center">
-          {data.results.map(person => (
+          {data.results.map((character, index) => (
             <CharacterCards
+            key={getUrlId(character.url)}
             imageUrl={`https://starwars-visualguide.com/assets/img/characters/${getUrlId(
-              person.url,
+              character.url,
             )}.jpg`}
-            name={person.name}
-            key={person.name}
-            gender={person.gender}
-            height={person.height}
-            id={getUrlId(person.url)}
-            type="characters"
+            name={character.name}
+            gender={character.gender}
+            height={character.height}
+            id={getUrlId(character.url)}
           />
           ))}
         </div>)}
 
-     <div className="flex flex-col md:flex-row justify-between items-center mt-4">
+     <div className="flex flex-col items-center justify-between mt-4 md:flex-row">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded md:mb-0 md:mr-2"
+              className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 md:mb-0 md:mr-2"
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
             >
@@ -57,7 +58,7 @@ export const Home = () => {
             <div className={`flex md:flex-row justify-between items-center mt-4 ${pageNumbers.length > 1 ? 'hidden md:flex' : ''}`}>
               {pageNumbers.map(number => (
                 <button
-                  key={number}
+                key={`page-${number}`}
                   className={`mx-1 ${
                     number === currentPage
                       ? 'bg-blue-700 text-white'
@@ -70,7 +71,7 @@ export const Home = () => {
               ))}
             </div>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
             >

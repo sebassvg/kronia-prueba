@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { PageLayout } from './components/PageLayout';
 import { Home } from './pages/Home';
 import { Movies } from './pages/Movies';
+import { SignUpForm } from './pages/SignUpForm';
 
 function App() {
   return (
@@ -14,6 +15,10 @@ function App() {
 
       <Route path="/movies" element={<PageLayout />}>
         <Route index element={<Movies />} />
+      </Route>
+
+      <Route path="/sign-up" element={<PageLayout />}>
+        <Route index element={<SignUpForm />} />
       </Route>
       
     </Routes>
