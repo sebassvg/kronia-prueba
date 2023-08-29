@@ -19,8 +19,8 @@ export const Header = () => {
         <Link className='text-xl text-bold' to="/movies">
           Movies
         </Link>
-        <Link className='text-xl text-bold' to="/">
-          Login
+        <Link className='text-xl text-bold' to="/sign-up">
+          Sign Up
         </Link>
       </div>
     </nav>
